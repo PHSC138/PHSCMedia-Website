@@ -1,0 +1,15 @@
+block navBar
+    script(src="/javascripts/nav.js")
+    link(rel="stylesheet", href="/stylesheets/navbar.css")
+    div(class="navbar")
+        div(class="navbar-container")
+            div(class="logo-container")
+                a(href="/")
+                    img(src="/images/Logo.png", class="nav-logo")
+            div(class="navbar-right")
+                a(href="/about") About
+                div(class="dropdown")
+                    button(class="dropbtn cursor") Portfolio
+                    div(class="dropdown-content none")
+                        each category in categories
+                            a(href="/portfolio/" + category.text)=category.text

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    link(rel="stylesheet", href="/stylesheets/links.css")
+    div(class="link-container")
+        each val in links
+            div(class="link-item")
+                a(href=val.link, target="_blank")
+                    h1=val.text
+                    img(src=val.preview)

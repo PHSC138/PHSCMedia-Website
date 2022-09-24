@@ -1,0 +1,94 @@
+.navbar {
+    overflow: hidden;
+    margin: 1vh 1vw 1vh 1vw;
+}
+
+.navbar-container {
+}
+
+.navbar-right {
+    float: right;
+}
+
+.nav-logo {
+    height: 10vh;
+}
+
+.navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 12px 12px 10px;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px 0 14px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    font-size: 28px;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    color: #393E46;
+    background-color: #FFD369;
+    transition: 0.5s ease;
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    background-color: #393E46;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 20px;
+}
+
+.dropdown-content a:hover {
+    color: black;
+    background-color: #ddd;
+    transition: 0.5s ease;
+}
+
+.none {
+    display: none;
+}
+
+.display {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus .dropdown-content {
+    display: block;
+    transition: 0.2s ease;
+}
+
+@media (max-height: 480px) {
+    .nav-logo {
+        height: 15vh;
+    }
+
+    .navbar {
+        margin-top: 0;
+    }
+}

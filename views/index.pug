@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div(class="index")
+        div(class="feature-photo-container")
+            img(class="feature-photo" src=feature_photo["modal"].src)
+
+        div(class="index-content-container")
+            a(href="https://www.youtube.com/channel/UCLEroFS6G7I67Gk5nqlovfg" target="_blank")
+                p youtube
+            video(class="index-video" autoplay muted loop)
+                source(src="/videos/longboard_720p.webm" type="video/webm")
+                source(src="/videos/longboard_720p.mp4" type="video/mp4")
+                p Your browser does not support the video tag.
+
+        // For those of you that like snooping, here's the link to my cybersecurity blog!
+        //div(class="index-content-container")
+        //    a(href="https://blog.phsc138.com" target="_blank")
+        //        p(style="background-color: #393E4650;") Cybersecurity Blog
+        //    img(class="index-image" src="/images/PHSC (dark).png")
+        //    img(class="index-image" src="/images/PHSC (dark).png")
+        //    img(class="index-image" src="/images/PHSC (dark).png")
+        //    img(class="index-image" src="/images/PHSC (dark).png")
+        //    img(class="index-image" src="/images/PHSC (dark).png")

@@ -1,0 +1,46 @@
+extends layout
+block content
+    link(rel="stylesheet", href="/stylesheets/lightbox.css")
+    script(src="/javascripts/lightbox.js")
+
+    h1(class="title")=title
+
+    div(class="portfolio-masonry-container")
+        - var data_index = 0;
+        while data_index < data.length
+            - var src = data[data_index]["thumbnail"].src;
+            div(class="portfolio-masonry-item")
+                img(src=src, onclick="openModal();currentSlide(" + (data_index + 1) + ")" class="hover-shadow cursor portfolio-img")
+            - data_index += 1
+
+    div(id="modal" class="modal")
+        div(class="control-container")
+            span(class="control cursor")
+                a(id="download_a")
+                    svg(class="control-icon" id="download" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;")
+                        g(id="Download" transform="matrix(1,0,0,1.33333,0,0)")
+                            rect(x="0" y="0" width="800" height="600" style="fill:none;")
+                            g(transform="matrix(1.08333,0,0,0.75,-33.3333,165.424)")
+                                path(d="M65.385,350L65.385,500L100,537.5L700,537.5L734.615,500L734.615,350L665.385,350L665.385,462.5C665.385,462.5 257.489,462.5 134.615,462.5C134.615,462.5 134.615,350 134.615,350L65.385,350Z")
+                            g(transform="matrix(1,0,0,0.75,0,0)")
+                                path(d="M362.5,453.35L277.283,333.799L216.21,377.332L369.464,592.332L430.536,592.332L583.79,377.332L522.717,333.799L437.5,453.35L437.5,79.435L362.5,79.435L362.5,453.35Z")
+
+            span(class="control cursor" onclick="closeModal()")
+                svg(class="control-icon" id="close" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:bevel;stroke-miterlimit:1.5;")
+                    g(transform="matrix(1,0,0,1,-850,0)")
+                        rect(id="Close" x="850" y="0" width="800" height="800" style="fill:none;")
+                        g(transform="matrix(0.840664,0,0,0.924169,210.436,52.5304)")
+                            path(d="M1658.88,24.313L1623.2,-8.148L850,-8.148L814.314,24.313L814.314,727.648L850,760.109L1623.2,760.109L1658.88,727.648L1658.88,24.313ZM1587.51,56.775L1587.51,695.186C1587.51,695.186 885.686,695.186 885.686,695.186C885.686,695.186 885.686,56.775 885.686,56.775C1033.18,56.775 1587.51,56.775 1587.51,56.775L1587.51,56.775Z")
+                        path(d="M1250,346.967L1108.98,205.95L1055.95,258.983L1196.97,400L1055.95,541.017L1108.98,594.05L1250,453.033L1391.02,594.05L1444.05,541.017L1303.03,400L1444.05,258.983L1391.02,205.95L1250,346.967Z")
+
+        div(class="modal-content")
+            each content, index in data
+                div(class="slides")
+                    - var src = content["modal"].src;
+                    - var download_src = content["download"].src;
+                    img(class="slide_image" src=src loading="lazy" download_src=download_src)
+
+        a(class="prev" onclick="plusSlides(-1)") &#10094;
+        a(class="next" onclick="plusSlides(1)") &#10095;
+        div(class="numbertext bottom-right")
+            span(id="img_count") 1 / x

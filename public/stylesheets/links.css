@@ -1,0 +1,11 @@
+.link-item {
+    text-align: center;
+}
+
+.link-item a {
+    color: white;
+}
+
+.link-item img {
+    width: 50vw;
+}
