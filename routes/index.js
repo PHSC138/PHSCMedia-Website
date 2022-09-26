@@ -34,17 +34,20 @@ function is_authorized(req) {
         return false;
     }
 
-    // Salt to be hashed with authorization
     const salt = "PHSCMEDIALIKESHOTSAUCE";
 
-    // Create a sha-256 hasher
-    const sha256Hasher = crypto.createHmac("sha256", salt);
+    authorization = salt + authorization;
 
-    // hash the string and set the output format
+    // Create a sha-256 hasher
+    const sha256_key = require("../data/keys");
+
+    const sha256Hasher = crypto.createHmac("sha256", sha256_key);
+
+    // Hash the string and set the output format
     const hash = sha256Hasher.update(authorization).digest("hex");
 
     // Compare with precomputed value
-    return hash === "6138a5a818650098f6645bc69f9755c32c77fca445a6b405b31eeb3a89835552";
+    return hash === "96cff57d34909575412aeef57a5208f02bad8931c98c9c88f5ae6e15cf46d9ef";
 }
 
 // Allow links to be updated -- most recent 5 are displayed && kept
