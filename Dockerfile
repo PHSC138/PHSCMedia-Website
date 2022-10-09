@@ -19,7 +19,7 @@ COPY package-lock.json package.json ./
 RUN npm install
 
 # Copy folders
-COPY public public/
+# NOTE: public now stored as a volume since pictures take forever to build
 COPY data data/
 COPY bin bin/
 COPY routes routes/
@@ -28,9 +28,6 @@ COPY views views/
 
 # Copy app
 COPY app.js .
-
-# Perms
-RUN find ./public/images -type d -exec chmod 755 {} +
 
 # Use the user created above
 USER ${USER}
