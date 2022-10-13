@@ -7,4 +7,5 @@ services:
       - "5000:3000"
     volumes:
       - ./public:/home/PHSCMedia/public
+      - ./data:/home/PHSCMedia/data
 

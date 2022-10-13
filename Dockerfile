@@ -20,7 +20,7 @@ RUN npm install
 
 # Copy folders
 # NOTE: public now stored as a volume since pictures take forever to build
-COPY data data/
+#       This allows the data and images in the container to be modified while running
 COPY bin bin/
 COPY routes routes/
 COPY utils utils/
