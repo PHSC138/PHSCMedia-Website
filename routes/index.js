@@ -120,7 +120,7 @@ router.get('/links', function (req, res, next) {
             category.title = categories[i].text;
             category.photos = [];
             for (let j = 0; j < categories[i].albums.length; j++) {
-                category.photos.push(url_prefix + categories[i].albums[j].text);
+                category.photos.push((url_prefix + category.title + '/' + categories[i].albums[j].text).replaceAll(' ', '%20'));
             }
 
             json_export.push(category);

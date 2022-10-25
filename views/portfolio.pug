@@ -1,16 +1,19 @@
 extends layout
 block content
-    link(rel="stylesheet", href="/stylesheets/lightbox.css")
-    script(src="/javascripts/lightbox.js")
+    link(rel="stylesheet", href="/stylesheets/portfolio.css")
+    script(src="/javascripts/portfolio.js")
 
     h1(class="title")=title
 
-    div(class="portfolio-masonry-container")
+    div(id="progress-bar-container")
+        div(id="progress-bar")
+
+    div(class="portfolio-masonry-container", images=data.length)
         - var data_index = 0;
         while data_index < data.length
             - var src = data[data_index]["thumbnail"].src;
             div(class="portfolio-masonry-item")
-                img(src=src, onclick="openModal();currentSlide(" + (data_index + 1) + ")" class="hover-shadow cursor portfolio-img")
+                img(src=src, onclick="openModal();currentSlide(" + (data_index + 1) + ")" class="hover-shadow cursor portfolio-img" onload="checkLoaded()")
             - data_index += 1
 
     div(id="modal" class="modal")

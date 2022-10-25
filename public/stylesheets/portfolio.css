@@ -13,6 +13,7 @@
     margin: 1.5vw auto;
     width: 98vw;
     column-gap: 1.5em;
+    display: none;
 }
 
 .portfolio-masonry-item {
@@ -170,4 +171,16 @@ img.hover-shadow {
     .portfolio-masonry-container {
         column-count: 4;
     }
+}
+
+/* Progress bar */
+#progress-bar-container {
+  width: 100%;
+  background-color: gray;
+}
+
+#progress-bar {
+  width: 1%;
+  height: 10vh;
+  background-color: #FFD369;
 }
