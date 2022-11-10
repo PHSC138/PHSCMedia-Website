@@ -192,3 +192,32 @@ window.addEventListener("click", function (event) {
         check_outside_interaction(event.clientX, event.clientY);
     }
 });
+
+
+// Loading bar until at least thumbnails are loaded
+// This prevents gross flashing loading
+var num_images = undefined;
+var loaded = 0;
+var container = undefined;
+var progress_bar = undefined;
+function checkLoaded() {
+    // Get container
+    if (num_images === undefined) {
+        container = document.getElementsByClassName("portfolio-masonry-container")[0];
+        num_images = container.getAttribute("images");
+        progress_bar = document.getElementById("progress-bar");
+    }
+
+    // Loaded another image
+    loaded += 1;
+
+    // Update progress bar
+    const percentage = Math.floor(loaded / num_images * 100);
+    progress_bar.style.width = percentage + "%";
+
+    // Check if all thumbnails have loaded
+    if (loaded === num_images - 1) {
+        container.style.display = "block"; 
+        progress_bar.style.display = "none";
+    }
+}
